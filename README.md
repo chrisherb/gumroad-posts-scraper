@@ -5,7 +5,7 @@ Scrapes your Gumroad account's posts and returns their title, time and url.
 ## How to install
 
 ```
-npm install https://github.com/chrisherb/gumroad-posts-scraper
+npm install github:chrisherb/gumroad-posts-scraper
 ```
 
 ## How to use
