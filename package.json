@@ -1,0 +1,20 @@
+{
+  "name": "gumroad-posts-scraper",
+  "version": "1.0.0",
+  "description": "Scrapes your Gumroad account's posts and returns their title, time and url",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "author": "Christopher Herb",
+  "license": "MIT",
+  "scripts": {
+    "build": "npx tsc"
+  },
+  "dependencies": {
+    "axios": "^1.6.5",
+    "cheerio": "^1.0.0-rc.12",
+    "ts-node": "^10.9.2"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  }
+}

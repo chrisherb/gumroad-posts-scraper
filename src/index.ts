@@ -1,0 +1,1 @@
+export { getGumroadPosts } from "./scraper";
