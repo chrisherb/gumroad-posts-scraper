@@ -4,9 +4,6 @@
   "description": "Scrapes your Gumroad account's posts and returns their title, time and url",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "files": [
-    "/dist"
-  ],
   "author": "Christopher Herb",
   "license": "MIT",
   "scripts": {
