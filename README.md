@@ -1,6 +1,7 @@
 # gumroad-posts-scraper
 
-Scrapes your Gumroad account's posts and returns their title, time and url.
+Scrapes your Gumroad account's posts and returns their title, time and url. 
+So far no method of retrieving the actual post's content is implemented, since it is unfortunately loaded asynchronously. 
 
 ## How to install
 
