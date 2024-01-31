@@ -5,6 +5,7 @@ type GumroadPost = {
   header: string;
   time: string;
   link: string;
+  description?: string;
 };
 
 export async function getGumroadPosts(
@@ -25,17 +26,28 @@ async function getPosts(baseUrl: string): Promise<GumroadPost[]> {
   const response = await axios.get(baseUrl + "/posts");
   const $ = load(response.data);
 
-  const output: GumroadPost[] = [];
+  const posts: GumroadPost[] = [];
 
   $("main > a").each((_, element) => {
     const header = $(element).find("h2").text();
     const time = $(element).find("time").text();
-    const postUrl = $(element).attr("href") || "";
+    const postUrl = $(element).attr("href");
 
-    output.push({ header, time, link: baseUrl + postUrl });
+    posts.push({ header, time, link: baseUrl + postUrl });
   });
 
-  return output;
+  const postsWithDescription = posts.map(async (post) => {
+    post.description = await getPostDescription(post.link);
+
+    return post;
+  });
+
+  return Promise.all(postsWithDescription);
 }
 
-getGumroadPosts("trnr");
+async function getPostDescription(url: string): Promise<string | undefined> {
+  const response = await axios.get(url);
+  const $ = load(response.data);
+
+  return $("head > meta[name='description']").attr("content");
+}
