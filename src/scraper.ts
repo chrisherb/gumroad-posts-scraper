@@ -22,7 +22,7 @@ export async function getGumroadPosts(
   return [];
 }
 
-async function getPosts(baseUrl: string): Promise<GumroadPost[]> {
+export async function getPosts(baseUrl: string): Promise<GumroadPost[]> {
   const response = await axios.get(baseUrl + "/posts");
   const $ = load(response.data);
 
@@ -45,7 +45,7 @@ async function getPosts(baseUrl: string): Promise<GumroadPost[]> {
   return Promise.all(postsWithDescription);
 }
 
-async function getPostDescription(url: string): Promise<string | undefined> {
+export async function getPostDescription(url: string): Promise<string | undefined> {
   const response = await axios.get(url);
   const $ = load(response.data);
 
